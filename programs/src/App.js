@@ -8,7 +8,7 @@ function App() {
   const [programs, setPrograms] = useState([]);
  
  
-  const [program, setProgram] = useState({
+  const program = useState({
     image: "",
     institution: "",
     name: "",
@@ -49,7 +49,7 @@ const cards = programs.map(program => {
         </div>
       </header>
       <Banner />
-      <section>
+      <section className='cards'>
         {cards}
         {page > 1 && <button onClick={() => setPage(page - 1) }>Load Prev</button>}
         {page < 10 && <button onClick={() => setPage(page + 1) }>Load More</button>}
