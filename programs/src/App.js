@@ -1,5 +1,6 @@
 import Banner from './components/Banner';
 import './App.css';
+import Card from "./components/Card";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         </div>
       </header>
       <Banner />
-      {/* Display program grid here */}
+      <Card/>
     </div>
   );
 }
