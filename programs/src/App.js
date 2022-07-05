@@ -51,6 +51,7 @@ const cards = programs.map(program => {
       <Banner />
       <section>
         {cards}
+        {page > 1 && <button onClick={() => setPage(page - 1) }>Load Prev</button>}
         {page < 10 && <button onClick={() => setPage(page + 1) }>Load More</button>}
       </section>
       
