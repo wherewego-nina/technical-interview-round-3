@@ -5,6 +5,9 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 
 function App() {
+  const [programs, setPrograms] = useState([]);
+ 
+ 
   const [program, setProgram] = useState({
     image: "",
     institution: "",
@@ -16,11 +19,20 @@ function App() {
 useEffect(function(){
   axios.get(`https://staging.wherewego.org/api/programs?limit=12&page=${page}`)
     .then(res => {
-      setProgram(res.data[0]);
+      setPrograms(res.data);
     })
     .catch(err => console.error);
 },[page])
-  
+
+const cards = programs.map(program => {
+  return (
+      <Card
+          key={program._id}
+          program={{...program}} 
+          
+      />
+  )
+})
   return (
     <div className="App">
       <header className="App__header">
@@ -38,7 +50,7 @@ useEffect(function(){
       </header>
       <Banner />
       <section>
-        <Card program={program}/>
+        {cards}
         {page < 10 && <button onClick={() => setPage(page + 1) }>Load More</button>}
       </section>
       
