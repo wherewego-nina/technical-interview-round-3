@@ -1,8 +1,26 @@
 import Banner from './components/Banner';
 import './App.css';
 import Card from "./components/Card";
+import axios from 'axios';
+import {useState, useEffect} from 'react';
 
 function App() {
+  const [program, setProgram] = useState({
+    image: "",
+    institution: "",
+    name: "",
+    programType: ""
+  });
+  const [page, setPage] =useState(1);
+
+useEffect(function(){
+  axios.get(`https://staging.wherewego.org/api/programs?limit=12&page=${page}`)
+    .then(res => {
+      setProgram(res.data[1]);
+    })
+    .catch(err => console.error);
+},[page])
+  
   return (
     <div className="App">
       <header className="App__header">
@@ -19,7 +37,8 @@ function App() {
         </div>
       </header>
       <Banner />
-      <Card/>
+      <Card program={program}/>
+      <button>Load More</button>
     </div>
   );
 }
