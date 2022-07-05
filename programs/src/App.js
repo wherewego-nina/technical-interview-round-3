@@ -11,7 +11,7 @@ function App() {
     name: "",
     programType: ""
   });
-  const [page, setPage] = useState(10);
+  const [page, setPage] = useState(1);
 
 useEffect(function(){
   axios.get(`https://staging.wherewego.org/api/programs?limit=12&page=${page}`)
@@ -37,8 +37,11 @@ useEffect(function(){
         </div>
       </header>
       <Banner />
-      <Card program={program}/>
-      {page < 10 && <button>Load More</button>}
+      <section>
+        <Card program={program}/>
+        {page < 10 && <button onClick={() => setPage(page + 1) }>Load More</button>}
+      </section>
+      
     </div>
   );
 }
