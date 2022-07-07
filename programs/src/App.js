@@ -9,20 +9,19 @@ function App() {
  
   const [page, setPage] = useState(1);
 
-useEffect(function(){
-  axios.get(`https://staging.wherewego.org/api/programs?limit=12&page=${page}`)
-    .then(res => {
-      setPrograms(res.data);
-    })
-    .catch(err => console.error);
-},[page])
+  useEffect(function(){
+    axios.get(`https://staging.wherewego.org/api/programs?limit=12&page=${page}`)
+      .then(res => {
+        setPrograms(res.data);
+      })
+      .catch(err => console.error);
+  },[page])
 
 const cards = programs.map(program => {
   return (
       <Card
           key={program._id}
-          program={{...program}} 
-          
+          program={{...program}}    
       />
   )
 })

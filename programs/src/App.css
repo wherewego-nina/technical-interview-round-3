@@ -92,5 +92,6 @@ section > button {
   font-size: larger;
   color: white;
   text-transform: uppercase;
+  border-radius: 10px;
   background-color: rgb(43, 3, 80);
 }
