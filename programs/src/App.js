@@ -7,13 +7,6 @@ import {useState, useEffect} from 'react';
 function App() {
   const [programs, setPrograms] = useState([]);
  
- 
-  const program = useState({
-    image: "",
-    institution: "",
-    name: "",
-    programType: ""
-  });
   const [page, setPage] = useState(1);
 
 useEffect(function(){
@@ -51,10 +44,9 @@ const cards = programs.map(program => {
       <Banner />
       <section className='cards'>
         {cards}
-        {page > 1 && <button onClick={() => setPage(page - 1) }>Load Prev</button>}
-        {page < 10 && <button onClick={() => setPage(page + 1) }>Load More</button>}
-      </section>
-      
+        {page > 1 && <button onClick={() => setPage(page - 1) } className="cards--previous">Load Previous</button>}
+        {page < 10 && <button onClick={() => setPage(page + 1) } className="cards--more">Load More</button>}
+      </section> 
     </div>
   );
 }
