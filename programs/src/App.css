@@ -19,24 +19,79 @@
   color: inherit;
 }
 
+.App {
+  background-image: linear-gradient(white, rgb(84, 49, 119));
+  /* opacity: .8; */
+}
+
 
 .cards {
   display: inline-grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 3px;
+  grid-template-rows: auto;
+  grid-gap: 2%;
   justify-items: center;
   align-items: center;
+  /* padding-bottom: 100%; */
+  margin-top: 5%;
+  margin-bottom: 10%;
+  margin-left: 8%;
+  margin-right: 7%;
+}
+.cards--previous {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.cards--more {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .card {
   height: 100%;
   width: 100%;
   border: 1px solid black;
-  margin-right: 1px;
+  box-shadow: 10px 10px 5px rgb(54, 6, 55);
+  background-color:rgb(50,23,77);
+
+  /* border-radius: 5px; */
+  /* margin-top: 100px; */
+  /* margin-bottom: 100px; */
+}
+.card--name {
+  font-size: 200%;
+  color: white;
+  font-weight: bolder;
+  font-style: italic;
+  margin-top: -5px;
+  margin-bottom: -20px;
+}
+
+.card--institution {
+  font-size: 150%;
+  color: white;
+  font-weight: bolder;
+}
+
+.card--type {
+  font-size: 100%;
+  color: white;
+  font-weight: bolder;
+  margin-top: -20px;
+  margin-bottom: -10px;
 }
 
 .card--image {
   height: 70%;
   width: 100%;
-  border-radius: 9px;
+}
+
+section > button {
+  font-size: larger;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: rgb(43, 3, 80);
 }
